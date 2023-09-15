@@ -25,6 +25,7 @@ const getBatchByBatchId = require('./getBatchByBatchId')
 const getBatchByTeacherId = require('./getBatchByTeacherId')
 
 const getBatchByStudentId = require("./getBatchByStudentId")
+const updatestatus = require("./updatestatus")
 
 
 
@@ -62,5 +63,7 @@ router.use('/', getBatchByStudentId)
 router.use('/', getBatchByBatchId )
 
 
+
+router.use('/',updatestatus)
 
 module.exports = router;
