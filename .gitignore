@@ -1,0 +1,18 @@
+node_modules
+src/logs
+npm-debug.log
+./coverage
+src/node_modules
+src/npm-debug.log
+src/customScripts
+.DS_Store
+
+
+
+#temp files
+test.js
+dummy.js
+todo.txt
+.dump
+# editor conf
+.vscode
