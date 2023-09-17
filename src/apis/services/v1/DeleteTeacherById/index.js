@@ -4,7 +4,7 @@ const TeacherData = require('@models/Teacher');
 const deleteTeacherById = async (teacherId) => {
     try {
       const deletedTeacher = await TeacherData.findByIdAndDelete(teacherId);
-      return deletedTeacher;
+      return {};
     } catch (error) {
       throw new Error('Failed to delete teacher');
     }

@@ -12,7 +12,7 @@ const UpdateTeacherById = require('./UpdateTeacherById');
 
 // const NotificationRoute = require('./Notification');
 
-const deleteTeacherById = require('./UpdateTeacherById')
+const deleteTeacherById = require('./DeleteTeacherById')
 
 const GetByuserId = require('./GetByUserId')
 
