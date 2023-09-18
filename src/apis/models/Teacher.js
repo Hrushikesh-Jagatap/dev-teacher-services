@@ -10,27 +10,27 @@ const teacherSchema = new mongoose.Schema({
   },
   first_name: {
     type: String,
-    required: true,
+    // //required: true,
   },
   last_name: {
     type: String,
-    required: true,
+    // //required: true,
   },
   fathersName: {
     type: String,
-    required: true,
+    //required: true,
   },
   dob: {
     type: Date,
-    required: true,
+    //required: true,
   },
   email: {
     type: String,
-    required: true,
+    //required: true,
   },
   phone_number: {
     type: String,
-    required: true,
+    //required: true,
   },
   secondaryMobileNumber: String,
   profileImage: String,
@@ -78,6 +78,14 @@ const teacherSchema = new mongoose.Schema({
       position: String,
       start_date: String,
       end_date: String,
+    },
+  ],
+
+   req_status: [
+    {
+      sid: Number,
+      status: String,
+      about: String
     },
   ],
   certifications: [String],
