@@ -29,12 +29,12 @@ const updateTeacherStatus = async (teacherId, teacherData) => {
 
 
 
-    
+
     if (existingStatus) {
       existingStatus.status = status;
       existingStatus.about = about;
 
-    
+
     } else {
       teacher.req_status.push({ sid, status, about });
     }

@@ -1,24 +1,16 @@
 const TeacherService = require('@root/src/apis/services/v1/CreateTeacher');
+const { HttpResponseHandler, Logger: log } = require('intelli-utility');
 
 // Controller function to create a new teacher
-const createTeacher = async (req, res) => {
+const createTeacher = async (req, res, next) => {
     try {
         const newTeacher = await TeacherService.createTeacher(req.body);
-        
         if (!newTeacher) {
-            return res.status(400).json({ error: 'Error in creating teacher' });
+            return HttpResponseHandler.success(req, res, newTeacher);
         }
-        
-        const result = {
-            data: newTeacher,
-            success: true,
-            message: 'Teacher created successfully',
-        };
-        
-        return res.status(201).json(result);
+        return HttpResponseHandler.success(req, res, newTeacher);
     } catch (error) {
-        console.error(error);
-        return res.status(500).json({ error: 'Internal server error' });
+        next(error);
     }
 };
 

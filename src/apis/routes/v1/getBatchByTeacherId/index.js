@@ -4,13 +4,13 @@ const router = express.Router();
 
 const getBatchByTeacherIdController = require('@controllers/v1/getBatchByTeacherId')
 
-router.get('/teacher/:Id',async(req, res) => {
+router.get('/teacher/:Id',async(req, res, next) => {
     try {
-        const result = await getBatchByTeacherIdController.getBatchByTeacherId(req, res);
-        res.status(201).json(result);
+        const result = await getBatchByTeacherIdController.getBatchByTeacherId(req, res, next);
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'Internal server error' });
+        // console.error(error);
+        // res.status(500).json({ error: 'Internal server error' });
+        next(error);
     }    
 });
 

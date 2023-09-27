@@ -2,29 +2,30 @@ const express = require('express');
 
 const router = express.Router();
 
-const TeacherDetails = require('./TeacherDetails');
+const TeacherDetails = require('./TeacherDetails'); // done
 
-const CreateTeacher = require('./CreateTeacher');
+const CreateTeacher = require('./CreateTeacher'); // done
 
-const TeacherDetailsById = require('./TeacherDetailsById')
+const TeacherDetailsById = require('./TeacherDetailsById') // done
 
-const UpdateTeacherById = require('./UpdateTeacherById');
+const UpdateTeacherById = require('./UpdateTeacherById'); // done
 
 // const NotificationRoute = require('./Notification');
 
 const deleteTeacherById = require('./DeleteTeacherById')
 
-const GetByuserId = require('./GetByUserId')
+const GetByuserId = require('./GetByUserId') // done
 
-const CreateBatch = require('./CreateBatch')
+const CreateBatch = require('./CreateBatch') // done
 
-const UpdateBatchByTeacherId = require('./UpdateBatchByTeacherId')
+const UpdateBatchByTeacherId = require('./UpdateBatchByTeacherId') // done 
 
-const getBatchByBatchId = require('./getBatchByBatchId')
+const getBatchByBatchId = require('./getBatchByBatchId') // done
 
-const getBatchByTeacherId = require('./getBatchByTeacherId')
+const getBatchByTeacherId = require('./getBatchByTeacherId') // done
 
-const getBatchByStudentId = require("./getBatchByStudentId")
+const getBatchByStudentId = require("./getBatchByStudentId") // done 
+
 const updatestatus = require("./updatestatus")
 
 
@@ -60,10 +61,8 @@ router.use('/', getBatchByTeacherId);
 router.use('/', getBatchByStudentId)
 
 // route to get batch by BatchId
-router.use('/', getBatchByBatchId )
+router.use('/', getBatchByBatchId)
 
-
-
-router.use('/',updatestatus)
+router.use('/', updatestatus)
 
 module.exports = router;
