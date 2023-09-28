@@ -4,7 +4,7 @@ const router = express.Router();
 
 const UpdateTeacherByIdController = require('@controllers/v1/UpdateTeacherById')
 
-router.put('/teachers/:id', async(req, res, next) => {
+router.put('/userId/:id', async(req, res, next) => {
     try {
         const result = await UpdateTeacherByIdController.updateTeacherById(req, res, next);
     } catch (error) {
