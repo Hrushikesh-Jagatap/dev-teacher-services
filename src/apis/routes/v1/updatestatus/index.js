@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const UpdatestatusController = require('@controllers/v1/updatestatus');
+const UpdatestatusController = require('@controllers/v1/UpdateStatus');
 
 router.put('/status/:id', async (req, res) => {
     try {

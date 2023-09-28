@@ -1,24 +1,18 @@
 const BatchService = require('@services/v1/getBatchByBatchId');
+const { HttpResponseHandler } = require('intelli-utility');
 
-// Controller function to get a single teacher by ID
-const getBatchByBatchId = async (req, res) => {
+// Controller function to get a single Batch by ID
+const getBatchByBatchId = async (req, res, next) => {
     try {
         const batch = await BatchService.getBatchByBatchId(req.params.id);
-        const result = {
-            data: null,
-            success: false,
-            error: 'Error in Finding  Btach By BatchId',
-        }
+
         if (!batch) {
-            res.result;
+            return HttpResponseHandler.success(req, res, batch);
         }
-        result.data = batch;
-        result.success = true;
-        return result;
+        return HttpResponseHandler.success(req, res, batch);
 
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'Internal server error' });
+        next(error);
     }
 };
 
