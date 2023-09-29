@@ -51,7 +51,10 @@ const teacherSchema = new mongoose.Schema({
     },
   },
   teaching_mode: String,
-  subjects_taught: [String],
+  subjects_taught: [{
+    subject: String,
+    class: String,
+  }],
   batch_taught: [
     {
       batch_id: String,
@@ -81,7 +84,7 @@ const teacherSchema = new mongoose.Schema({
     },
   ],
 
-   req_status: [
+  req_status: [
     {
       sid: Number,
       status: String,
