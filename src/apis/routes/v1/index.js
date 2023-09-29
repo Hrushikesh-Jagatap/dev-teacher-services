@@ -28,6 +28,8 @@ const getBatchByStudentId = require("./getBatchByStudentId") // done
 
 const updatestatus = require("./updatestatus")
 
+const search = require('./searchApi')
+
 
 
 // Route to get all teachers
@@ -64,5 +66,8 @@ router.use('/', getBatchByStudentId)
 router.use('/', getBatchByBatchId)
 
 router.use('/', updatestatus)
+
+//route to get teacher By class lang subj and mode
+router.use('/', search)
 
 module.exports = router;
