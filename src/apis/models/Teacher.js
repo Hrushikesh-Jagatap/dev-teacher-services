@@ -8,11 +8,11 @@ const teacherSchema = new mongoose.Schema({
     type: String,
     unique: true
   },
-  first_name: {
+  first_name: { 
     type: String,
     // //required: true,
   },
-  last_name: {
+  last_name: { 
     type: String,
     // //required: true,
   },
@@ -34,7 +34,7 @@ const teacherSchema = new mongoose.Schema({
   },
   secondaryMobileNumber: String,
   profileImage: String,
-  aboutUs: String,
+  aboutUs: String, 
   address: {
     street: String,
     city: String,
@@ -51,7 +51,7 @@ const teacherSchema = new mongoose.Schema({
     },
   },
   teaching_mode: String,
-  subjects_taught: [{
+  subjects_taught: [{ 
     subject: String,
     class: String,
   }],
@@ -68,14 +68,14 @@ const teacherSchema = new mongoose.Schema({
       students: [String],
     },
   ],
-  qualifications: [
+  qualifications: [ 
     {
       degree: String,
       institution: String,
       year: String,
     },
   ],
-  experience: [
+  experience: [ 
     {
       school_name: String,
       position: String,
@@ -92,9 +92,9 @@ const teacherSchema = new mongoose.Schema({
     },
   ],
   certifications: [String],
-  teaching_languages: [String],
+  teaching_languages: [String], 
   additional_info: String,
-  demo_video: String,
+  demo_video: String, 
   isDeleted: {
     type: Boolean,
     default: false,

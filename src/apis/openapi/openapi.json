@@ -2,7 +2,7 @@
   "openapi": "3.0.3",
   "info": {
     "version": "1.0.0",
-    "title": "Sarvm User Management Service",
+    "title": "Intelli User Management Service",
     "description": "User Management Service API"
   },
   "license": {
