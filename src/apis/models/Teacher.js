@@ -85,7 +85,10 @@ const teacherSchema = new mongoose.Schema({
     {
       sid: Number,
       status: String,
-      about: String
+      about: String,
+       subject: String,
+      classes: String,
+      flag:Boolean,
     },
   ],
   certifications: [String],
