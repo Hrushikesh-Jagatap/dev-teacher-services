@@ -1,6 +1,5 @@
 const express = require('express');
 
-// const timeZoneHandler = require('@common/timeZoneHandler');
 const {
   node: { buildNumber, serviceName },
 } = require('@config');
@@ -23,10 +22,6 @@ router.get('/healthcheck', (req, res) => {
   };
   return HttpResponseHandler.success(req, res, data);
 });
-
-// router.get('/utc', (req, res) => {
-//  return HttpResponseHandler.success(req, res, timeZoneHandler.getCurrentUTCMoment.toISOString());
-// });
 
 router.use('/v1', v1Routes);
 

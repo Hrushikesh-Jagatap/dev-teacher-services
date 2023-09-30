@@ -1,4 +1,4 @@
-const TeacherService = require('@services/v1/Updatestatus');
+const TeacherService = require('@services/v1/UpdateStatus');
 
 // Controller function to update a teacher by ID
 const updatestatus = async (req, res) => {

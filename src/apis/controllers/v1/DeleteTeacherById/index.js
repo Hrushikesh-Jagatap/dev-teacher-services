@@ -4,18 +4,15 @@ const TeacherService = require('@root/src/apis/services/v1/DeleteTeacherById');
 const deleteTeacherById = async (req, res) => {
     try {
         const deletedTeacher = await TeacherService.deleteTeacherById(req.params.id);
-        
+
+        const result = {};
+
         if (!deletedTeacher) {
-            return res.status(404).json({ error: 'Teacher not found' });
+            return result;
         }
-        
-        const result = {
-            data: null,
-            success: true,
-            message: 'Teacher deleted successfully',
-        };
-        
-        return res.json(result);
+
+        return result;
+
     } catch (error) {
         console.error(error);
         return res.status(500).json({ error: 'Internal server error' });

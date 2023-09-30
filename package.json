@@ -1,7 +1,7 @@
 {
-    "name": "user_mgmt_service",
+    "name": "teacher_mgmt_service",
     "version": "1.0.0",
-    "description": "User Management Service",
+    "description": "Teacher Management Service",
     "main": "./server.js",
     "scripts": {
       "prd": "nodemon ./server",
