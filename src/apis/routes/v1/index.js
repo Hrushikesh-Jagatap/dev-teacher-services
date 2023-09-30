@@ -28,6 +28,7 @@ const getBatchByStudentId = require("./getBatchByStudentId") // done
 
 const updatestatus = require("./updatestatus")
 
+const serachbystatus = require("./serachbystatus")
 const search = require('./searchApi')
 
 
@@ -69,5 +70,7 @@ router.use('/', updatestatus)
 
 //route to get teacher By class lang subj and mode
 router.use('/', search)
+
+router.use('/',serachbystatus)
 
 module.exports = router;
