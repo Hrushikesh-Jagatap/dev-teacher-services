@@ -27,7 +27,7 @@ const getBatchByTeacherId = require('./getBatchByTeacherId')
 const getBatchByStudentId = require("./getBatchByStudentId")
 const updatestatus = require("./updatestatus")
 
-
+const serachbystatus = require("./serachbystatus")
 
 // Route to get all teachers
 router.use('/', TeacherDetails);
@@ -65,5 +65,7 @@ router.use('/', getBatchByBatchId )
 
 
 router.use('/',updatestatus)
+
+router.use('/',serachbystatus)
 
 module.exports = router;

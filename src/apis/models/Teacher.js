@@ -80,10 +80,14 @@ const teacherSchema = new mongoose.Schema({
       end_date: String,
     },
   ],
-
+ student_id:[{
+      student_id:String,
+      subject:String,
+      classes:String,
+    }],
    req_status: [
     {
-      sid: Number,
+      sid: String,
       status: String,
       about: String,
        subject: String,
