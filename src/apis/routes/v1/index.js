@@ -28,8 +28,10 @@ const getBatchByStudentId = require("./getBatchByStudentId") // done
 
 const updatestatus = require("./updatestatus")
 
-const serachbystatus = require("./serachbystatus")
-const search = require('./searchApi')
+const serachbystatus = require("./serachbystatus") // student who do request 
+
+const search = require('./searchApi') // this is api for searching all teacher whose subject class and lang anyone is matching
+
 
 
 
