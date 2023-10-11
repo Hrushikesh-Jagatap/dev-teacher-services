@@ -124,7 +124,7 @@ const teacherSchema = new mongoose.Schema({
     type: String,
     default: null,
   },
-
+  
   bankDetails: { // Bank Details
 
     payment: {
