@@ -2,28 +2,28 @@ const TeacherData = require('@models/Teacher');
 const { loadBalancer, SYSTEM_TOKEN } = require('@config');
 const axios = require('axios');
 
-const updateTeacherStatus = async (userId, teacherData) => {
+const updateTeacherStatus = async (tid_userId, teacherData) => {
   try {
-    const teacher = await TeacherData.findOne({ userId: userId });
+    const teacher = await TeacherData.findOne({ userId: tid_userId });
 
     if (!teacher) {
       throw new Error('Teacher not found');
     }
 
-    const { userId, status, about, subject, flag, classes } = teacherData;
-    let existingStatus = teacher.req_status.find((reqStatus) => reqStatus.userId == userId);
+    const { sid_userId, status, about, subject, flag, classes } = teacherData;
+    let existingStatus = teacher.req_status.find((reqStatus) => reqStatus.sid_userId == sid_userId);
 
     if (existingStatus) {
       existingStatus.status = status;
       // existingStatus.about = about;
     } else {
-      teacher.req_status.push({ userId, status, about, subject, flag, classes });
+      teacher.req_status.push({ sid_userId, status, about, subject, flag, classes });
     }
 
     const updatedTeacher = await teacher.save();
     if (status == "Accepted") {
       // Push the new teacher data into the userId array
-      const newSeacherData = { student_userId: userId, subject, classes };
+      const newSeacherData = { student_userId: sid_userId, subject, classes };
       updatedTeacher.student_userId.push(newSeacherData);
       await updatedTeacher.save();
     }
@@ -31,7 +31,7 @@ const updateTeacherStatus = async (userId, teacherData) => {
     if (status !== "requested") {
       const config = {
         method: 'put',
-        url: `${loadBalancer}/sts/apis/v1/status/${userId}`,
+        url: `${loadBalancer}/sts/apis/v1/status/${sid_userId}`,
         headers: {
           app_name: 'teacherApp',
           app_version_code: '101',
@@ -39,7 +39,7 @@ const updateTeacherStatus = async (userId, teacherData) => {
           Authorization: `Bearer ${SYSTEM_TOKEN}`,
         },
         data: {
-          userId: userId,
+          tid_userId: tid_userId,
           status: status,
           about: about,
           subject: subject,
@@ -54,7 +54,7 @@ const updateTeacherStatus = async (userId, teacherData) => {
 
     if (status == 'Accepted') {
       const queryConditions = {
-        "req_status.userId": userId,
+        "req_status.sid_userId": sid_userId,
         "req_status.status": "requested",
         "req_status.subject": subject,
         "req_status.classes": classes,
@@ -67,7 +67,7 @@ const updateTeacherStatus = async (userId, teacherData) => {
         // Update the flag to false for the matching req_status object
         findteacher.req_status.forEach((reqStatus) => {
           if (
-            reqStatus.userId === userId &&
+            reqStatus.sid_userId === sid_userId &&
             reqStatus.status === 'requested' &&
             reqStatus.subject === subject &&
             reqStatus.classes === classes &&

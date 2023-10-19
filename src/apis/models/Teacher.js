@@ -92,7 +92,7 @@ const teacherSchema = new mongoose.Schema({
   req_status: [
     {
       // sid: String,
-        userId: String,
+        sid_userId: String,
       status: String,
       about: String,
       subject: String,
