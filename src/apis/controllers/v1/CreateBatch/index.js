@@ -5,7 +5,7 @@ const { HttpResponseHandler } = require('intelli-utility');
 // POST /batches
 const createBatches = async (req, res, next) => {
 
-  const { userId } = req.body;
+  const { userId } = req.body
 
   try {
     const teacher = await TeacherService.getUserById(userId);
@@ -15,6 +15,7 @@ const createBatches = async (req, res, next) => {
     }
 
     const batchData = req.body;
+
     const createdBatches = await batchService.createBatches(batchData);
 
     return HttpResponseHandler.success(req, res, createdBatches);

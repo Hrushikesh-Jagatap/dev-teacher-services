@@ -3,12 +3,12 @@ const express = require('express');
 
 const router = express.Router();
 
-const CreateBatchController = require('@controllers/v1/CreateBatch');
+const CreateChapterController = require('@controllers/v1/CreateChapter');
 
-router.post('/create-batch', async (req, res, next) => {
+router.post('/create-chapter', async (req, res, next) => {
     // Extract the necessary data from the request body
     try {
-        const result = await CreateBatchController.createBatches(req, res, next);
+        const result = await CreateChapterController.createChapter(req, res, next);
     } catch (error) {
         next(error);
     }

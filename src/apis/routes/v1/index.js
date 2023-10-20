@@ -10,14 +10,24 @@ const TeacherDetailsById = require('./TeacherDetailsById') // done
 
 const UpdateTeacherById = require('./UpdateTeacherById'); // done
 
-const splash = require('./splashApi')
+const deleteTeacherById = require('./DeleteTeacherById'); //done
+
+const GetByuserId = require('./GetByUserId'); // done
+
+const PersonalDetails = require('./PersonalDetails'); // done
+
+const TeachingDetails = require('./TeachingDetails'); // done
+
+const EductaionalDetails = require('./EducationalDetails'); // done 
+
+const BankDetails = require('./BankDetails'); // done
+
+const search = require('./searchApi') // this is api for searching all teacher whose subject class and lang anyone is matching
+
+const splash = require('./splashApi') // done
 
 
 // const NotificationRoute = require('./Notification');
-
-const deleteTeacherById = require('./DeleteTeacherById')
-
-const GetByuserId = require('./GetByUserId') // done
 
 const CreateBatch = require('./CreateBatch') // done
 
@@ -29,19 +39,33 @@ const getBatchByTeacherId = require('./getBatchByTeacherId') // done
 
 const getBatchByStudentId = require("./getBatchByStudentId") // done 
 
+const addStuToBatch = require('./addStuToBatch');
+
 const updatestatus = require("./updatestatus")
 
 const serachbystatus = require("./serachbystatus") // student who do request 
 
-const search = require('./searchApi') // this is api for searching all teacher whose subject class and lang anyone is matching
+const createChapter = require('./CreateChapter'); // done 
 
-const PersonalDetails = require('./PersonalDetails');
+const updateChapter = require('./updateChapter');
 
-const TeachingDetails = require('./TeachingDetails');
+const createSession = require('./CreateSession');
 
-const EductaionalDetails = require('./EducationalDetails');
+const updateSession = require('./updateSession');
 
-const BankDetails = require('./BankDetails');
+router.use('/', updateSession);
+
+// route to add student to batch
+router.use('/', addStuToBatch); 
+
+// create session for every chapter
+router.use('/', createSession); 
+
+// route to create chapter content
+router.use('/', createChapter);
+
+//route to use updated chapter
+router.use('/', updateChapter);
 
 //route to updated PersonalDetails By UserId
 router.use('/', PersonalDetails)
