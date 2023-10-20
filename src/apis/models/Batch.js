@@ -12,7 +12,10 @@ const batchSchema = new mongoose.Schema({
     unique: true
   },
 
-  student_id: [{
+  // student_id: [{
+  //   type: String,
+  // }],
+   student_userId: [{
     type: String,
     default: null
   }],
