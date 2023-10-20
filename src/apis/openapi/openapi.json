@@ -11,19 +11,19 @@
   },
   "servers": [
     {
-      "url": "http://localhost:1207",
+      "url": "http://localhost:1208",
       "description": "Local server"
     },
     {
-      "url": "http://auth-nlb-e953c9da3a44bec4.elb.ap-south-1.amazonaws.com/",
+      "url": "",
       "description": "Dev Server"
     },
     {
-      "url": "https://api.sarvm.ai/",
+      "url": "",
       "description": "PRD server"
     },
     {
-      "url": "http://auth-nlb-e953c9da3a44bec4.elb.ap-south-1.amazonaws.com/",
+      "url": "",
       "description": "STG server"
     },
     {
@@ -71,7 +71,7 @@
         }
       }
     },
-    "/ums/apis/v1/users/{userId}/address": {
+    "/tms/apis/v1/users/{}/address": {
       "get": {
         "tags": ["Address"],
         "summary": "Get  All Address of user",
