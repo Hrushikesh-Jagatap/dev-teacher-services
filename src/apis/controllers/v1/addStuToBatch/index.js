@@ -7,7 +7,7 @@ const addToBatch = async (req, res, next) => {
 
     const userId = req.params.userId;
 
-    const { student_id, batch_id } = req.body;
+    const { student_userId, batch_id } = req.body;
 
     try {
 

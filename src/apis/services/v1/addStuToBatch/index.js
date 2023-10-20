@@ -5,7 +5,7 @@ const TeacherData = require('@models/Teacher');
 const addToBatch = async (userId, data) => {
 
     try {
-        const studentIdToAdd = data.student_id
+        const studentIdToAdd = data.student_userId
 
         const user = await TeacherData.findOne({ userId: userId });
 
@@ -21,11 +21,11 @@ const addToBatch = async (userId, data) => {
             return ('Batch not found');
         }
 
-        if (batch.student_id.includes(studentIdToAdd)) {
+        if (batch.student_userId.includes(studentIdToAdd)) {
             return ('Invalid student ID or student already in the batch');
         }
         // Add the student to the batch
-        batch.student_id.push(...studentIdToAdd);
+        batch.student_userId.push(...studentIdToAdd);
 
         await batch.save();
 

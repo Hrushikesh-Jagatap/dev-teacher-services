@@ -48,6 +48,16 @@ const sessionSchema = new mongoose.Schema({
 
     },
 
+    mettingUrl: {
+        type:String,
+        default:null
+    },
+
+    ThumbNail: {
+        type: String, 
+        deafult:null
+    },
+
     resources: [
         {
             type: String, // You can specify the appropriate type for resources, e.g., URL or file path

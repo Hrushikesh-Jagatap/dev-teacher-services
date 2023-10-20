@@ -5,13 +5,6 @@ const chapterDb = require('@models/Chapter');
 
 const updateSession = async (req, res, next) => {
  
-    const {chapter_id} = req.body;
-    
-    const chapter = await chapterDb.findOne({chapter_id:chapter_id});
-
-    if(!chapter) {
-        return ('chapter not found');
-    }
 
   try {
 
