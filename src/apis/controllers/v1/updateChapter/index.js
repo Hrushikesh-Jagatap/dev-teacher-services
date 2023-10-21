@@ -6,9 +6,9 @@ const updateChapter = async (req, res, next) => {
 
     try {
 
-        const chapterId = req.params.Id;   // Get the session ID from the URL
+        const chapterId = req.params.Id;   // Get the chapter ID from the URL
 
-        const updatedChapterData = req.body;   // The updated session data from the request body
+        const updatedChapterData = req.body;   // The updated chapter data from the request body
 
         const updateChapter = await chapterService.updateChapter(chapterId, updatedChapterData);
 

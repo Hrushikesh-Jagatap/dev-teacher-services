@@ -49,6 +49,8 @@ const createChapter = require('./CreateChapter'); // done
 
 const updateChapter = require('./updateChapter');
 
+const getChapterById = require('./getChapterById');
+
 const createSession = require('./CreateSession');
 
 const updateSession = require('./updateSession');
@@ -66,6 +68,9 @@ router.use('/', createChapter);
 
 //route to use updated chapter
 router.use('/', updateChapter);
+
+//router to get chapter By Id
+router.use('/', getChapterById);
 
 //route to updated PersonalDetails By UserId
 router.use('/', PersonalDetails)
