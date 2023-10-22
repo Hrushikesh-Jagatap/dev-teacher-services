@@ -17,21 +17,6 @@ const updateChapter = async (chapterId, updatedChapterData) => {
     }
 };
 
-//     const chapter = await Chapter.findOne({ chapter_id: chapterId });
-
-//     if(!chapter) {
-//         return ('chapter not found');
-//     }
-
-//     if (!chapter.session.includes(sessionId)) {
-//         chapter.session.push(sessionId);
-//         await chapter.save();
-//         return Chapter;
-//     } 
-
-// } 
-
-
 // when session created for chapter then seesionId will be pushed in chapter 
 const addSessionToChapter = async (chapterId, sessionId) => {
     const chapter = await Chapter.findOne({ chapter_id: chapterId });
