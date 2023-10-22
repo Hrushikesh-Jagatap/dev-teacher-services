@@ -31,6 +31,7 @@ const chapterSchema = new mongoose.Schema({
         type: String,
         default: null
     },
+    
     resources: [
         {
             type: String,
@@ -43,19 +44,7 @@ const chapterSchema = new mongoose.Schema({
         default: false
     },
 
-    session: [{
-        Id: {
-            type: String,
-            ref: 'Session',
-            default: null
-        },
-
-        name: {
-            type: String,
-            ref: 'Session',
-            default: null
-        }
-    }]
+    session: []
 });
 
 const Chapter = mongoose.model('Chapter', chapterSchema);
