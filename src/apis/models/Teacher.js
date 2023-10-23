@@ -13,30 +13,72 @@ const teacherSchema = new mongoose.Schema({
 
   personalDetails: { // personal Details ->
 
-    first_name: String,
+    first_name: {
+      type: String,
+      default: null
+    },
 
-    last_name: String,
+    last_name: {
+      type: String,
+      default: null
+    },
 
-    fathersName: String,
+    fathersName: {
+      type: String,
+      default: null
+    },
 
-    dob: String,
+    dob: {
+      type: String,
+      default: null
+    },
 
-    email: String,
+    email: {
+      type: String,
+      default: null
+    },
 
-    phone_number: String,
+    phone_number: {
+      type: String,
+      default: null
+    },
 
-    profileImage: String,
+    profileImage: {
+      type: String,
+      default: null
+    },
 
-    aboutUs: String,
+    aboutUs: {
+      type: String,
+      default: null
+    },
 
-    secondaryMobileNumber: String,
+    secondaryMobileNumber: {
+      type: String,
+      default: null
+    },
 
     address: {
-      street: String,
-      city: String,
-      state: String,
-      postal_code: String,
-      country: String,
+      street: {
+        type: String,
+        default: null
+      },
+      city: {
+        type: String,
+        default: null
+      },
+      state: {
+        type: String,
+        default: null
+      },
+      postal_code: {
+        type: String,
+        default: null
+      },
+      country: {
+        type: String,
+        default: null
+      },
       location: {
         longitude: String,
         latitude: String,
@@ -108,7 +150,7 @@ const teacherSchema = new mongoose.Schema({
   req_status: [
     {
       // sid: String,
-        sid_userId: String,
+      sid_userId: String,
       status: String,
       about: String,
       subject: String,
