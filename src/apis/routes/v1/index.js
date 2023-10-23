@@ -57,6 +57,10 @@ const updateSession = require('./updateSession');
 
 const getSessionDetails = require('./getSessionDetails');
 
+const profileCompleted = require('./profileCompleted');
+
+router.use('/', profileCompleted);
+
 // roue to get Session Details
 router.use('/', getSessionDetails);
 
