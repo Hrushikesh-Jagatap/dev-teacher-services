@@ -1,6 +1,6 @@
 const sessionService = require('@services/v1/updateSession')
 const { HttpResponseHandler } = require('intelli-utility');
-const chapterDb = require('@models/Chapter');
+
 
 
 const updateSession = async (req, res, next) => {
