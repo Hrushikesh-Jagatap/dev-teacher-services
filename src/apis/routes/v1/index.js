@@ -55,6 +55,12 @@ const createSession = require('./CreateSession');
 
 const updateSession = require('./updateSession');
 
+const getSessionDetails = require('./getSessionDetails');
+
+// roue to get Session Details
+router.use('/', getSessionDetails);
+
+// route to updated session 
 router.use('/', updateSession);
 
 // route to add student to batch
@@ -68,6 +74,7 @@ router.use('/', createChapter);
 
 //route to use updated chapter
 router.use('/', updateChapter);
+router.use('/', serachbystatus)
 
 //router to get chapter By Id
 router.use('/', getChapterById);
