@@ -19,13 +19,8 @@ const createSession = async (sessionData) => {
             return ('Error while updating sessionId in chapter');
         }
 
-        const newSession = await sessionDb.crechapter_idate(sessionData);
-
-        // await chapterDb.findOneAndUpdate(
-        //     { chapter_id },
-        //     { $push: { session: { Id: session_id } } }
-        // );
-
+        const newSession = await sessionDb.create(sessionData);
+        
         return newSession;
 
     } catch (error) {
