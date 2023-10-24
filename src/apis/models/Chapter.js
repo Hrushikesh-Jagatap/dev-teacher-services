@@ -4,21 +4,18 @@ const chapterSchema = new mongoose.Schema({
 
     chapter_id: {
         type: String,
-        unique: true,
-        default: null
+        // unique: true,
     },
 
     userId: {
         type: String,
-        ref: 'Teacher',
-        default: null
+        // ref: 'Teacher',
     },
 
     batch_id: {
         type: String,
-        ref: 'Batch',
-        required: true,
-        default: null
+        // ref: 'Batch',
+        // required: true,
     },
 
 
