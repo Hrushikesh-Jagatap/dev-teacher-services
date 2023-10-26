@@ -21,7 +21,6 @@ const updateBankDetailsById = async (userId, updateBankDetails) => {
     );
 
     if(updatedTeacher) {
-educationDetails
       const { bankDetails, ApplicationStatus } = updatedTeacher
 
       return { bankDetails, ApplicationStatus };
