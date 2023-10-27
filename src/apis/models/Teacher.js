@@ -33,6 +33,11 @@ const teacherSchema = new mongoose.Schema({
       default: null
     },
 
+    gender: {
+      type: String,
+      default: null
+    },
+
     email: {
       type: String,
       default: null

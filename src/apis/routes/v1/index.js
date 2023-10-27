@@ -78,7 +78,6 @@ router.use('/', createChapter);
 
 //route to use updated chapter
 router.use('/', updateChapter);
-router.use('/', serachbystatus)
 
 //router to get chapter By Id
 router.use('/', getChapterById);
