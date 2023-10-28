@@ -5,11 +5,14 @@ const updateBatchByTeacherId = async (batchId, batchData) => {
     try {
         const updateBatch = await BatchData.findOneAndUpdate(
             { batch_id: batchId },
-              batchData,
+            batchData,
             { new: true }
         );
-        if (!updateBatch) {
-            throw new Error('Batch not found');
+        if (updateBatch === null) {
+            return {
+                status: 404,
+                message: 'BATCH_NOT_FOUND',
+            };
         }
         return updateBatch;
     } catch (error) {
@@ -19,11 +22,11 @@ const updateBatchByTeacherId = async (batchId, batchData) => {
 
 
 // when chapter created then there Id will be pushed into Btach chapters array
-const addChapterToBatch = async (batchId, chapterId) => { 
+const addChapterToBatch = async (batchId, chapterId) => {
 
     const batch = await BatchData.findOne({ batch_id: batchId });
 
-    if(!batch) {
+    if (!batch) {
         return ('Batch not found');
     }
 
@@ -31,9 +34,9 @@ const addChapterToBatch = async (batchId, chapterId) => {
         batch.chapters.push(chapterId);
         await batch.save();
         return batch;
-    } 
+    }
 
-} 
+}
 
 module.exports = {
     updateBatchByTeacherId,

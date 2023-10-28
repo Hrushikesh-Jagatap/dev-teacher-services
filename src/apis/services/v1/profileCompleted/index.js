@@ -4,7 +4,12 @@ const isProfileCompleted = async (userId) => {
     try {
         const user = await User.findOne({ userId });
 
-        if (!user) return false;
+        if (user === null) {
+            return {
+                status: 404,
+                message: 'NO_TEACHER_FOUND',
+            };
+        }
 
         const { ApplicationStatus } = user;
         const isCompleted = ApplicationStatus.isPersonalDetailsCompleted &&

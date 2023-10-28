@@ -10,6 +10,13 @@ const getSessionsByDate = async (userId, date) => {
       sessionDate: { $gte: new Date(date), $lt: new Date(date + 'T23:59:59') },
     });
 
+    if (sessions === null) {
+      return {
+        status: 404,
+        message: 'SESSION_NOT_FOUND',
+      };
+    }
+
     return sessions;
     
   } catch (error) {

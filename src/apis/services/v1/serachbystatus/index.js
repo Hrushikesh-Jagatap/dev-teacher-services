@@ -4,6 +4,7 @@ const TeacherData = require('@models/Teacher');
 const getUserById = async (userId) => {
   try {
     const teacher = await TeacherData.findOne({ "userId": userId, "req_status.status": "requested", "req_status.flag": true });
+    
 
     return teacher;
 
