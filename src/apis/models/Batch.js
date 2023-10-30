@@ -10,6 +10,11 @@ const batchSchema = new mongoose.Schema({
     // unique: true, // Ensure batch IDs are unique
   },
 
+  classId: {
+    type: String, // This should Be classId when Teacher fill TeachingDetails In This there is classId 
+    default: null
+  },
+
   student_userId: [{
     type: String, // Array of student user IDs, which come from the frontend
     default: null, // Default value is set to null
