@@ -26,6 +26,7 @@ const search = require('./searchApi') // this is api for searching all teacher w
 
 const splash = require('./splashApi') // done
 
+const TeacherStudent = require('./TeacherStudent');
 
 // const NotificationRoute = require('./Notification');
 
@@ -58,6 +59,9 @@ const updateSession = require('./updateSession');
 const getSessionDetails = require('./getSessionDetails');
 
 const profileCompleted = require('./profileCompleted');
+
+//
+router.use('/', TeacherStudent);
 
 router.use('/', profileCompleted);
 

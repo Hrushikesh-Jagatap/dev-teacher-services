@@ -150,6 +150,8 @@ const teacherSchema = new mongoose.Schema({
     student_userId: String,
     subject: String,
     classes: String,
+    name:String,
+    profileimage:String,
   }],
 
   req_status: [

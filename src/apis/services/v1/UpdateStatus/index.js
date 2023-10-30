@@ -43,7 +43,6 @@ const updateTeacherStatus = async (tid_userId, teacherData) => {
       existingStatus.status = status;
       // existingStatus.about = about;
     } else {
-  
 
     const abc = await getStudent(sid_userId);
     const name=abc.data.personalDetails.first_name ;
@@ -56,7 +55,11 @@ const updateTeacherStatus = async (tid_userId, teacherData) => {
     const updatedTeacher = await teacher.save();
     if (status == "Accepted") {
       // Push the new teacher data into the userId array
-      const newSeacherData = { student_userId: sid_userId, subject, classes };
+    const abc = await getStudent(sid_userId);
+    var name=abc.data.personalDetails.first_name ;
+    var profileimage=abc.data.personalDetails.profileImage;
+    const newSeacherData = { student_userId: sid_userId, subject, classes, name,profileimage };
+
       updatedTeacher.student_userId.push(newSeacherData);
       await updatedTeacher.save();
     }
@@ -92,6 +95,8 @@ const updateTeacherStatus = async (tid_userId, teacherData) => {
         "req_status.subject": subject,
         "req_status.classes": classes,
         "req_status.flag": true,
+        "req_status.name":name,
+        "req_status.profile":profileimage
       };
 
       let findteacher = await TeacherData.findOne(queryConditions).exec();
