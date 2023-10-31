@@ -31,7 +31,6 @@ const createBatches = async (batchData) => {
 
     const createdBatches = await Batch.create(batchData);
 
-
     if (createdBatches === null) {
       return {
         status: 404,

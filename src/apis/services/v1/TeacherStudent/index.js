@@ -18,7 +18,7 @@ const getAllStudentDetails = async (teacherUserId) => {
     if (studentUserIds.length === 0 || !studentUserIds.every(student => student.student_userId)) {
       throw new Error('Invalid student_userId data');
     }
-    
+
     // Return the list of student details.
     return studentUserIds;
   } catch (error) {
@@ -30,3 +30,6 @@ const getAllStudentDetails = async (teacherUserId) => {
 module.exports = {
   getAllStudentDetails,
 };
+
+// Todo: ContentType and ContentLength Restriction should be implemented in Release 2
+// ContentType: "image/jpeg",
