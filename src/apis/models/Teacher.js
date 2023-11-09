@@ -99,10 +99,10 @@ const teacherSchema = new mongoose.Schema({
   teachingDetails: { // Teaching Details
 
     teaching_mode:
-    {
+    [{
       type: String,
       default: null,
-    },
+    }],
 
     subjects_taught: [{
       subject: String,
@@ -146,6 +146,22 @@ const teacherSchema = new mongoose.Schema({
 
   },
 
+
+  OnlieTeachingDeatis:{
+    //  teaching_mode:
+    // {
+    //   type: String,
+    //   default: "online",
+    // },
+   perhourcharge:String,
+   
+  },
+   OfflineTeachingDeatis:{
+    availability:String,
+   priceperdistancekm:String,
+   pincode:[String],
+   
+  },
   student_userId: [{
     student_userId: String,
     subject: String,
