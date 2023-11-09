@@ -230,6 +230,13 @@ const teacherSchema = new mongoose.Schema({
       default: false
     }
   },
+  Admin_Review:{
+    communication:String,
+    Teaching_skill:String,
+    flag:Boolean,
+    abc:String,
+    xyz:String,
+  }
 
 }, { timestamps: { createdAt: true, updatedAt: true }, versionKey: false });
 
