@@ -6,9 +6,9 @@ const searchTeacher = async (query) => {
 
     const filter = {};
 
-    if (mode) {
-      filter["teachingDetails.teaching_mode"] = mode;
-    }
+  if (mode && Array.isArray(mode) && mode.length > 0) {
+  filter["teachingDetails.teaching_mode"] = mode;
+}
 
     if (subject) {
       filter["teachingDetails.subjects_taught.subject"] = new RegExp(subject, 'i');
@@ -23,7 +23,7 @@ const searchTeacher = async (query) => {
     }
 
     const results = await TeacherData.find(filter)
-      .select("userId  personalDetails teachingDetails educationDetails")
+      .select("userId  personalDetails teachingDetails educationDetails OnlieTeachingDeatis OfflineTeachingDeatis")
       .lean().exec();
 
       if (results === null) {

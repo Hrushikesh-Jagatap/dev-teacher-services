@@ -153,6 +153,7 @@ const teacherSchema = new mongoose.Schema({
     //   type: String,
     //   default: "online",
     // },
+    availability:String,
    perhourcharge:String,
    
   },
