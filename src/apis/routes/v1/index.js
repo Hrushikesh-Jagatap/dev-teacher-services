@@ -59,6 +59,8 @@ const updateSession = require('./updateSession');
 const getSessionDetails = require('./getSessionDetails');
 
 const profileCompleted = require('./profileCompleted');
+const AdminReviewDetails = require('./AdminReviewDetails');
+
 
 //
 router.use('/', TeacherStudent);
@@ -140,5 +142,7 @@ router.use('/', updatestatus)
 router.use('/', search)
 
 router.use('/', serachbystatus)
+router.use('/', AdminReviewDetails)
+
 
 module.exports = router;
