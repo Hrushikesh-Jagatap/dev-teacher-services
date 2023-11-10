@@ -1,3 +1,4 @@
+const { boolean } = require('joi');
 const mongoose = require('mongoose');
 
 const teacherSchema = new mongoose.Schema({
@@ -253,6 +254,12 @@ const teacherSchema = new mongoose.Schema({
     flag:Boolean,
     abc:String,
     xyz:String,
+  },
+  instance_status:{
+  status:Boolean,
+ default:false,
+  
+ 
   }
 
 }, { timestamps: { createdAt: true, updatedAt: true }, versionKey: false });

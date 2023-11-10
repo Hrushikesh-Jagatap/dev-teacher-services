@@ -62,6 +62,9 @@ const profileCompleted = require('./profileCompleted');
 const AdminReviewDetails = require('./AdminReviewDetails');
 const OnlieTeachingDeatis = require('./OnlieTeachingDeatis');
 const OfflineTeachingDeatis = require('./OfflineTeachingDeatis');
+const instancestatus = require('./instancestatus');
+const searchforinstance = require('./searchforinstance');
+
 
 
 //
@@ -147,6 +150,8 @@ router.use('/', serachbystatus)
 router.use('/', AdminReviewDetails)
 router.use('/', OnlieTeachingDeatis)
 router.use('/', OfflineTeachingDeatis)
+router.use('/', instancestatus)
+router.use('/', searchforinstance)
 
 
 
