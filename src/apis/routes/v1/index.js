@@ -60,6 +60,11 @@ const getSessionDetails = require('./getSessionDetails');
 
 const profileCompleted = require('./profileCompleted');
 const AdminReviewDetails = require('./AdminReviewDetails');
+const OnlieTeachingDeatis = require('./OnlieTeachingDeatis');
+const OfflineTeachingDeatis = require('./OfflineTeachingDeatis');
+const instancestatus = require('./instancestatus');
+const searchforinstance = require('./searchforinstance');
+
 
 
 //
@@ -143,6 +148,11 @@ router.use('/', search)
 
 router.use('/', serachbystatus)
 router.use('/', AdminReviewDetails)
+router.use('/', OnlieTeachingDeatis)
+router.use('/', OfflineTeachingDeatis)
+router.use('/', instancestatus)
+router.use('/', searchforinstance)
+
 
 
 module.exports = router;
