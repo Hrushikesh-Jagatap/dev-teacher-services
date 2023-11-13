@@ -7,8 +7,13 @@ const searchTeacher = async (req, res, next) => {
         const queryParameters = req.query;
         const results = await TeacherService.searchTeacher(queryParameters);
 
-        if (results.length === 0) {
+        if (results.length == 0) {
             return HttpResponseHandler.success(req, res, "No teachers found.");
+        }
+        if(results.status==404){
+            let data="No teachers found";
+           return HttpResponseHandler.success(req, res, data);
+
         }
 
         return HttpResponseHandler.success(req, res, results);

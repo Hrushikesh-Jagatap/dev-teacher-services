@@ -149,19 +149,110 @@ const teacherSchema = new mongoose.Schema({
 
 
   OnlieTeachingDeatis:{
-    //  teaching_mode:
-    // {
-    //   type: String,
-    //   default: "online",
-    // },
+  
     availability:String,
    perhourcharge:String,
+    teaching_languages: [String],
+    teaching_mode:
+    {
+      type: String,
+      default: "Online",
+    },
+    subjects_taught: [{
+      subject: String,
+      class: String,
+      target_exam: [String],
+    }],
+
+    batch_taught: [
+      {
+        batch_id: {
+          type: String,
+          default: null
+        },
+        batch_name: {
+          type: String,
+          default: null
+        },
+        batch_class: {
+          type: String,
+          default: null
+        }
+      },
+    ],
+
+    qualifications: [
+      {
+        degree: String,
+        institution: String,
+        year: String,
+      },
+    ],
+
+    experience: [
+      {
+        school_name: String,
+        position: String,
+        start_date: String,
+        end_date: String,
+      },
+    ],
    
   },
-   OfflineTeachingDeatis:{
+  
+  
+  
+  
+  
+  OfflineTeachingDeatis:{
+     teaching_mode:
+    {
+      type: String,
+      default: "Offline",
+    },
+     teaching_languages: [String],
     availability:String,
    priceperdistancekm:String,
    pincode:[String],
+   subjects_taught: [{
+      subject: String,
+      class: String,
+      target_exam: [String],
+    }],
+
+    batch_taught: [
+      {
+        batch_id: {
+          type: String,
+          default: null
+        },
+        batch_name: {
+          type: String,
+          default: null
+        },
+        batch_class: {
+          type: String,
+          default: null
+        }
+      },
+    ],
+
+    qualifications: [
+      {
+        degree: String,
+        institution: String,
+        year: String,
+      },
+    ],
+
+    experience: [
+      {
+        school_name: String,
+        position: String,
+        start_date: String,
+        end_date: String,
+      },
+    ],
    
   },
   student_userId: [{

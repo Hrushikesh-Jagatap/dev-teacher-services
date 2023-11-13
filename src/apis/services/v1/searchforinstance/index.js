@@ -50,13 +50,16 @@ const Teacher = require('@models/Teacher');
 
 const searchTeacher = async (query) => {
   try {
-    const { subject, className, lang} = query;
+    const { subject, className, lang,studentid} = query;
     let status=true;
-    const filter = {};
-
+    // const filter = {'student_userId.student_userId': studentid,'student_userId.subject':subject,'student_userId.class':className,};
+const filter={};
     if (subject) {
-      filter["teachingDetails.subjects_taught.subject"] = new RegExp(subject, 'i');
+      filter["OnlieTeachingDeatis.subjects_taught.subject"] = new RegExp(subject, 'i');
     }
+    //  if (subject) {
+    //   filter["teachingDetails.subjects_taught.subject"] = new RegExp(subject, 'i');
+    // }
 
  if (status) {
       filter["instance_status.status"] =status
@@ -65,19 +68,21 @@ const searchTeacher = async (query) => {
 
 
     if (className) {
-      filter["teachingDetails.subjects_taught.class"] = new RegExp(className, 'i');
+      filter["OnlieTeachingDeatis.subjects_taught.class"] = new RegExp(className, 'i');
     }
 
     if (lang) {
-      filter["educationDetails.teaching_languages"] = new RegExp(lang, 'i');
+      filter["OnlieTeachingDeatis.teaching_languages"] = new RegExp(lang, 'i');
     }
+
+     
 
    
     console.log(filter);
 
     const results = await Teacher.find(filter)
      // .select("userId personalDetails teachingDetails educationDetails OnlineTeachingDetails OfflineTeachingDetails instance_status")
-      .select() 
+      .select("userId") 
      .lean()
       .exec();
 
