@@ -64,6 +64,7 @@ const OnlieTeachingDeatis = require('./OnlieTeachingDeatis');
 const OfflineTeachingDeatis = require('./OfflineTeachingDeatis');
 const instancestatus = require('./instancestatus');
 const searchforinstance = require('./searchforinstance');
+const Getallteacher = require('./Getallteacher');
 
 
 
@@ -152,6 +153,7 @@ router.use('/', OnlieTeachingDeatis)
 router.use('/', OfflineTeachingDeatis)
 router.use('/', instancestatus)
 router.use('/', searchforinstance)
+router.use('/', Getallteacher)
 
 
 
