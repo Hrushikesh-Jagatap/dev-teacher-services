@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
 const batchSchema = new mongoose.Schema({
-  userId: {
+  createruserId: {
     type: String, // The user ID of the teacher, which comes from the frontend
   },
-
+teacherId:[String], // The,
   batch_id: {
     type: String, // This should be generated on the backend, not provided by the frontend
     // unique: true, // Ensure batch IDs are unique
@@ -91,6 +91,9 @@ const batchSchema = new mongoose.Schema({
       // required: true, // You can add this constraint if required
     },
   }],
+  mode:{
+    type: String,
+  }
 
 });
 

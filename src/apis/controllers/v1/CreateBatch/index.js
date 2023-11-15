@@ -5,14 +5,14 @@ const { HttpResponseHandler } = require('intelli-utility');
 // POST /batches
 const createBatches = async (req, res, next) => {
 
-  const { userId } = req.body
+  const { createruserId } = req.body
 
   try {
-    const teacher = await TeacherService.getUserById(userId);
+    // const teacher = await TeacherService.getUserById(userId);
 
-    if (!teacher) {
-      return HttpResponseHandler.success(req, res, teacher);
-    }
+    // if (!teacher) {
+    //   return HttpResponseHandler.success(req, res, teacher);
+    // }
 
     const batchData = req.body;
 
