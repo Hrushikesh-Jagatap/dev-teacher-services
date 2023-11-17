@@ -169,9 +169,31 @@ const updateTeacherStatus = async (tid_userId, teacherData) => {
         status: 404,
         message: 'TEACHER_NOT_FOUND',
       };
+  }
+  
+    const { sid_userId, status, about, subject, flag, classes } = teacherData;
+    let existingStatus = teacher.req_status.find((reqStatus) => reqStatus.sid_userId == sid_userId);
+
+    if (existingStatus) {
+      existingStatus.status = status;
+      // existingStatus.about = about;
+    } else {
+
+    const abc = await getStudent(sid_userId);
+    const name=abc.data.personalDetails?.first_name ;
+    const profileimage=abc.data.personalDetails?.profileImage;
+      
+    teacher.req_status.push({ sid_userId, status, about, subject, flag, classes,name,profileimage});
+    
     }
 
-    const { sid_userId, status, about, subject, flag, classes } = teacherData;
+    const updatedTeacher = await teacher.save();
+    if (status == "Accepted") {
+      // Push the new teacher data into the userId array
+    const abc = await getStudent(sid_userId);
+    var name=abc.data.personalDetails?.first_name ;
+    var profileimage=abc.data.personalDetails?.profileImage;
+    const newSeacherData = { student_userId: sid_userId, subject, classes, name,profileimage };
 
     // Check if the teacher already has a status for the given sid_userId
     const existingStatus = teacher.req_status.find((reqStatus) => reqStatus.sid_userId == sid_userId);
