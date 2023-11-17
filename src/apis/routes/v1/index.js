@@ -28,7 +28,7 @@ const splash = require('./splashApi')
 
 const TeacherStudent = require('./TeacherStudent');
 
-// const NotificationRoute = require('./Notification');
+const Notification = require('./Notification');
 
 const CreateBatch = require('./CreateBatch') 
 
@@ -72,7 +72,7 @@ const searchforinstance = require('./searchforinstance');
 
 const Getallteacher = require('./Getallteacher');
 
-
+// router.use('/', Notification);
 
 //
 router.use('/', TeacherStudent);
