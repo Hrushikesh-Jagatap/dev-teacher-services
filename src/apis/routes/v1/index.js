@@ -42,9 +42,11 @@ const getBatchByStudentId = require("./getBatchByStudentId")
 
 const addStuToBatch = require('./addStuToBatch');
 
-const updatestatus = require("./updatestatus")
+const addTeachToBatch = require('./addTeachToBatch');
 
-const serachbystatus = require("./serachbystatus") 
+const updatestatus = require("./updatestatus");
+
+const serachbystatus = require("./serachbystatus"); 
 
 const createChapter = require('./CreateChapter'); 
 
@@ -74,6 +76,7 @@ const Getallteacher = require('./Getallteacher');
 
 // router.use('/', Notification);
 
+router.use('/', addTeachToBatch);
 //
 router.use('/', TeacherStudent);
 

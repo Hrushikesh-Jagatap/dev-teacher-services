@@ -6,8 +6,8 @@ const addToBatch = async (userId, data) => {
 
     try {
         const studentIdToAdd = data.student_userId
-        const teacherIdToAdd = data.teacherId
-        // const user = await TeacherData.findOne({ userId: userId });
+        // const teacherIdToAdd = data.teacherId
+        // // const user = await TeacherData.findOne({ userId: userId });
 
         // if (user === null) {
         //     return {
@@ -30,21 +30,14 @@ const addToBatch = async (userId, data) => {
         }
 
         if (batch.student_userId.includes(studentIdToAdd)) {
-            // return ('Invalid student ID or student already in the batch');
+             return ('Invalid student ID or student already in the batch');
         }
         // Add the student to the batch
         batch.student_userId.push(...studentIdToAdd);
 
-
-            if (batch.teacherId.includes(teacherIdToAdd)) {
-            // return ('Invalid student ID or student already in the batch');
-        }
-        // Add the student to the batch
-        batch.teacherId.push(...teacherIdToAdd);
-
         await batch.save();
 
-        return { studentIdToAdd ,teacherIdToAdd};
+        return { studentIdToAdd };
 
     } catch (error) {
         console.error(error);

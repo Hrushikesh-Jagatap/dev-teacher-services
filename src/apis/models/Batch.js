@@ -4,7 +4,7 @@ const batchSchema = new mongoose.Schema({
   createruserId: {
     type: String, // The user ID of the teacher, which comes from the frontend
   },
-teacherId:[String], // The,
+  // The,
   batch_id: {
     type: String, // This should be generated on the backend, not provided by the frontend
     // unique: true, // Ensure batch IDs are unique
@@ -22,6 +22,11 @@ teacherId:[String], // The,
   student_userId: [{
     type: String, // Array of student user IDs, which come from the frontend
     default: null, // Default value is set to null
+  }],
+
+  teacherId: [{
+    type: String,
+    default: null
   }],
 
   batch_name: {
@@ -91,7 +96,7 @@ teacherId:[String], // The,
       // required: true, // You can add this constraint if required
     },
   }],
-  mode:{
+  mode: {
     type: String,
   }
 
