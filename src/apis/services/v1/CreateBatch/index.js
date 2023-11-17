@@ -12,7 +12,7 @@ const createBatches = async (batchData) => {
 
     batchData.batch_id = batch_id;
 
-    const { userId } = batchData;
+    const { teacherId } = batchData;
 
     const Batchdata = {
       batch_id: batchData.batch_id,
@@ -20,7 +20,7 @@ const createBatches = async (batchData) => {
       batch_class: batchData.className,
     };
 
-    const addBatchDetailToTeacher = await addBatchDetails(userId, Batchdata)
+    const addBatchDetailToTeacher = await addBatchDetails(teacherId, Batchdata,batchData)
 
     if(addBatchDetailToTeacher === 'Error') {
       return {

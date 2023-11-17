@@ -16,11 +16,20 @@ const updateTeacherById = async (userId, teacherData) => {
   }
 };
 
-const addBatchDetails = async (userId, BatchData) => {
+const addBatchDetails = async (userId, BatchData,batchData) => {
   try {
     const teacher = await TeacherData.findOne({ userId });
+     let updateTeacher;
+if(batchData.mode=="online"){
+  updateTeacher =  teacher.OnlieTeachingDeatis.batch_taught.push(BatchData);
+}
+else
+{
+  updateTeacher =  teacher.OfflineTeachingDeatis.batch_taught.push(BatchData);
+}
 
-    const updateTeacher =  teacher.teachingDetails.batch_taught.push(BatchData);
+  
+    console.log(updateTeacher)
     await teacher.save();
 
     if(!updateTeacher) {
