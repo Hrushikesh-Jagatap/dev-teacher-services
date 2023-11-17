@@ -169,7 +169,10 @@ const updateTeacherStatus = async (tid_userId, teacherData) => {
         status: 404,
         message: 'TEACHER_NOT_FOUND',
       };
-  }
+    }
+
+    //const { sid_userId, status, about, subject, flag, classes } = teacherData;
+  
   
     const { sid_userId, status, about, subject, flag, classes } = teacherData;
     let existingStatus = teacher.req_status.find((reqStatus) => reqStatus.sid_userId == sid_userId);
@@ -235,7 +238,7 @@ const updateTeacherStatus = async (tid_userId, teacherData) => {
     }
 
     return updatedTeacher;
-  } catch (error) {
+  } }catch (error) {
     console.error('Error updating teacher status:', error.message);
     throw new Error('Failed to update teacher');
   }
