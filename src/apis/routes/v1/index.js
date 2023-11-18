@@ -72,7 +72,11 @@ const searchforinstance = require('./searchforinstance');
 
 const Getallteacher = require('./Getallteacher');
 
+const completeSession = require('./completeSession');
+
 // router.use('/', Notification);
+
+router.use('/', completeSession);
 
 //
 router.use('/', TeacherStudent);
