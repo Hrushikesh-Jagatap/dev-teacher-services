@@ -24,6 +24,8 @@ const BankDetails = require('./BankDetails');
 
 const search = require('./searchApi') // this is api for searching all teacher whose subject class and lang anyone is matching
 
+const getSessionById = require('./getSessionById')
+
 const splash = require('./splashApi') 
 
 const TeacherStudent = require('./TeacherStudent');
@@ -73,6 +75,8 @@ const searchforinstance = require('./searchforinstance');
 const Getallteacher = require('./Getallteacher');
 
 const completeSession = require('./completeSession');
+
+router.use('/', getSessionById);
 
 // router.use('/', Notification);
 
