@@ -1,5 +1,4 @@
 const SessionData = require('@models/Session');
-const Session = require('@models/Session');
 
 const getSessionById = async (session_id) => {
     try {
