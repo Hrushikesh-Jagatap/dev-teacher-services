@@ -5,13 +5,13 @@ const addToBatch = async (userId, data) => {
     try {
         const { student_userId, name, profileimage, batch_id } = data;
 
-        const user = await getUserById(userId);
-        if (!user) {
-            return {
-                status: 404,
-                message: 'TEACHER_NOT_FOUND',
-            };
-        }
+        // const user = await getUserById(userId);
+        // if (!user) {
+        //     return {
+        //         status: 404,
+        //         message: 'TEACHER_NOT_FOUND',
+        //     };
+        // }
 
         const batch = await Batch.findOne({ batch_id: batch_id });
         if (!batch) {
