@@ -1,54 +1,44 @@
 const Batch = require('@models/Batch');
-const TeacherData = require('@models/Teacher');
+const { getUserById } = require('@services/v1/GetByUserId');
 
-// add  Student To Batch Service
 const addToBatch = async (userId, data) => {
-
     try {
-        const studentIdToAdd = data.student_userId
-        const teacherIdToAdd = data.teacherId
-        // const user = await TeacherData.findOne({ userId: userId });
+        const { student_userId, name, profileimage, batch_id } = data;
 
-        // if (user === null) {
-        //     return {
-        //         status: 404,
-        //         message: 'TEACHER_NOT_FOUND',
-        //     };
-        // }
-
-
-        const { batch_id } = data;
-
-        const batch = await Batch.findOne({ batch_id: batch_id });
-
-
-        if (batch === null) {
+        const user = await getUserById(userId);
+        if (!user) {
             return {
                 status: 404,
                 message: 'TEACHER_NOT_FOUND',
             };
         }
 
-        if (batch.student_userId.includes(studentIdToAdd)) {
-            // return ('Invalid student ID or student already in the batch');
+        const batch = await Batch.findOne({ batch_id: batch_id });
+        if (!batch) {
+            return {
+                status: 404,
+                message: 'BATCH_NOT_FOUND',
+            };
         }
-        // Add the student to the batch
-        batch.student_userId.push(...studentIdToAdd);
 
-
-            if (batch.teacherId.includes(teacherIdToAdd)) {
-            // return ('Invalid student ID or student already in the batch');
+        if (!batch.student) {
+            batch.student = []; // Initialize students as an empty array if it's undefined
         }
-        // Add the student to the batch
-        batch.teacherId.push(...teacherIdToAdd);
 
+        const existingStudent = batch.student.find(student => student.student_userId === student_userId);
+        if (existingStudent) {
+            return {
+                status: 400,
+                message: 'STUDENT_ALREADY_ADDED',
+            };
+        }
+
+        batch.student.push({ student_userId, name, profileimage });
         await batch.save();
-
-        return { studentIdToAdd ,teacherIdToAdd};
-
+        return { student_userId, name, profileimage  };
     } catch (error) {
         console.error(error);
-        res.status(500).json({ error: 'Failed to add student to the batch' });
+        throw new Error('Failed to add student to the batch');
     }
 };
 

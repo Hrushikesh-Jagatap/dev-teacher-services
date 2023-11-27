@@ -19,9 +19,10 @@ teacherId:[String], // The,
     default: null
   },
 
-  student_userId: [{
-    type: String, // Array of student user IDs, which come from the frontend
-    default: null, // Default value is set to null
+  student: [{
+    student_userId: String,
+    name:String,
+    profileimage:String,
   }],
 
   batch_name: {
