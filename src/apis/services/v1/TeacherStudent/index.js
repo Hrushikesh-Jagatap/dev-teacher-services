@@ -31,5 +31,3 @@ module.exports = {
   getAllStudentDetails,
 };
 
-// Todo: ContentType and ContentLength Restriction should be implemented in Release 2
-// ContentType: "image/jpeg",
