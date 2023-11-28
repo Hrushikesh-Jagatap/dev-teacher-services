@@ -135,14 +135,14 @@
 //   updateTeacherStatus,
 // };
 const TeacherData = require('@models/Teacher');
-const { loadBalancer, SYSTEM_TOKEN } = require('@config');
+const { loadBalancer, SYSTEM_TOKEN,student } = require('@config');
 const axios = require('axios');
 
 const getStudent = async (sid_userId) => {
   try {
     const config = {
       method: 'get',
-      url: `${loadBalancer}/sts/apis/v1/user/${sid_userId}`,
+      url: `${student}/sts/apis/v1/user/${sid_userId}`,
       headers: {
         app_name: 'studentApp',
         app_version_code: '101',
@@ -248,7 +248,7 @@ const updateExternalSystem = async (sid_userId, tid_userId, status, about, subje
   try {
     const config = {
       method: 'put',
-      url: `${loadBalancer}/sts/apis/v1/status/${sid_userId}`,
+      url: `${student}/sts/apis/v1/status/${sid_userId}`,
       headers: {
         app_name: 'teacherApp',
         app_version_code: '101',
