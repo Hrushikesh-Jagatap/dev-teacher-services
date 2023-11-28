@@ -75,6 +75,8 @@ const searchforinstance = require('./searchforinstance');
 const Getallteacher = require('./Getallteacher');
 
 const completeSession = require('./completeSession');
+const splashapiforadmin = require('./splashapiforadmin');
+
 
 router.use('/', getSessionById);
 
@@ -174,5 +176,8 @@ router.use('/', instancestatus)
 router.use('/', searchforinstance)
 
 router.use('/', Getallteacher)
+router.use('/', splashapiforadmin)
+
+
 
 module.exports = router;

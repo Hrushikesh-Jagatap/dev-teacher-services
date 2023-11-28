@@ -19,9 +19,10 @@ teacherId:[String], // The,
     default: null
   },
 
-  student_userId: [{
-    type: String, // Array of student user IDs, which come from the frontend
-    default: null, // Default value is set to null
+  student: [{
+    student_userId: String,
+    name:String,
+    profileimage:String,
   }],
 
   batch_name: {
@@ -93,9 +94,16 @@ teacherId:[String], // The,
   }],
   mode:{
     type: String,
-  }
-
-});
+  },
+  //batch type like batch or private(1-1)
+  batchtype:{
+    type:String,
+    
+  },
+  
+},
+ { timestamps: { createdAt: true, updatedAt: true }}
+);
 
 const Batch = mongoose.model('Batch', batchSchema);
 
