@@ -94,9 +94,16 @@ teacherId:[String], // The,
   }],
   mode:{
     type: String,
-  }
-
-});
+  },
+  //batch type like batch or private(1-1)
+  batchtype:{
+    type:String,
+    
+  },
+  
+},
+ { timestamps: { createdAt: true, updatedAt: true }}
+);
 
 const Batch = mongoose.model('Batch', batchSchema);
 
