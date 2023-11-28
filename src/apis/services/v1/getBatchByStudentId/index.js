@@ -4,7 +4,7 @@ const BatchData = require('@models/Batch');
 const getBatchByStudentId = async (studentIds) => {
   try {
 
-    const batch = await BatchData.find({ student_userId: { $in: studentIds } });
+    const batch = await BatchData.find({ "student.student_userId": { $in: studentIds } });
 
 
     if (batch === null) {
