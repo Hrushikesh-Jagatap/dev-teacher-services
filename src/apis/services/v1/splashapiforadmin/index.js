@@ -128,7 +128,10 @@ const getSplashData = async () => {
   const onlinestudent = onlineData.studentIds.length;
   const offlinestudent = offlineData.studentIds.length;
 
-  return { onlineteacher, offlineteacher, onlinestudent, offlinestudent };
+ const totalstudent=onlinestudent+offlinestudent;
+const totalteacher=onlineteacher+offlineteacher;
+
+  return { onlineteacher, offlineteacher, onlinestudent, offlinestudent ,totalstudent,totalteacher};
 };
 
 module.exports = {
