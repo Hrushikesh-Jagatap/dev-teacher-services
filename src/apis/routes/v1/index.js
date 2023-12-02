@@ -76,6 +76,7 @@ const Getallteacher = require('./Getallteacher');
 
 const completeSession = require('./completeSession');
 const splashapiforadmin = require('./splashapiforadmin');
+const GetAllBatches = require('./GetAllBatches');
 
 
 router.use('/', getSessionById);
@@ -177,6 +178,7 @@ router.use('/', searchforinstance)
 
 router.use('/', Getallteacher)
 router.use('/', splashapiforadmin)
+router.use('/', GetAllBatches)
 
 
 
