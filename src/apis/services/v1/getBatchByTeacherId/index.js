@@ -3,7 +3,7 @@ const BatchData = require('@models/Batch');
 // Service function to get  find batch by teacher ID
 const getBatchByTeacherId = async (userId) => {
   try {
-    const batch = await BatchData.find({ userId: userId });
+    const batch = await BatchData.find({ teacherId: userId });
     
     if (batch === null) {
       return {
