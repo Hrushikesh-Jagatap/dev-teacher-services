@@ -194,10 +194,10 @@ const updateTeacherStatus = async (tid_userId, teacherData) => {
     const updatedTeacher = await teacher.save();
     if (status == "Accepted") {
       // Push the new teacher data into the userId array
-    const abc = await getStudent(sid_userId);
-    var name=abc.data.personalDetails?.first_name ;
-    var profileimage=abc.data.personalDetails?.profileImage;
-    const newSeacherData = { student_userId: sid_userId, subject, classes, name,profileimage };
+     const abc1 = await getStudent(sid_userId);
+    var names=abc1.data[0].personalDetails?.first_name ;
+    var profileimages=abc1.data[0].personalDetails?.profileImage;
+    const newSeacherData = { student_userId: sid_userId, subject, classes, names,profileimages };
 
     // Check if the teacher already has a status for the given sid_userId
     const existingStatus = teacher.req_status.find((reqStatus) => reqStatus.sid_userId == sid_userId);
