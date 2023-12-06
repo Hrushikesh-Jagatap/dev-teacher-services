@@ -183,8 +183,9 @@ const updateTeacherStatus = async (tid_userId, teacherData) => {
     } else {
 
     const abc = await getStudent(sid_userId);
-    const name=abc.data.personalDetails?.first_name ;
-    const profileimage=abc.data.personalDetails?.profileImage;
+   const name=abc.data[0].personalDetails?.first_name ;
+    const profileimage=abc.data[0].personalDetails?.profileImage;
+      
       
     teacher.req_status.push({ sid_userId, status, about, subject, flag, classes,name,profileimage});
     
