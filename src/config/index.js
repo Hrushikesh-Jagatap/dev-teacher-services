@@ -20,6 +20,7 @@ const REFRESH_TOKEN_EXPIRESIN = AccessEnv('REFRESH_TOKEN_EXPIRESIN');
 
 const LOAD_BALANCER = AccessEnv('LOAD_BALANCER');
 const student = AccessEnv('student');
+const message = AccessEnv('message');
 
 const SYSTEM_TOKEN = AccessEnv('SYSTEM_TOKEN');
 
@@ -40,6 +41,7 @@ module.exports = {
     buildNumber: BUILD_NUMBER,
     loadBalancer: LOAD_BALANCER,
     student:student,
+    message:message
   },
 
   mongodb: {
@@ -54,5 +56,6 @@ module.exports = {
   systemToken: SYSTEM_TOKEN,
   loadBalancer: LOAD_BALANCER,
    student:student,
+   message:message
   sessionName: SESSION_NAME,
 };
