@@ -5,6 +5,9 @@ const { createUUID } = require('@common/libs/UUID/UUIDV4');
 
 const { addBatchDetails } = require('@services/v1/UpdateTeacherById')
 
+const {  pushNotification } = require('@services/v1/Notification')
+
+
 // Create multiple batches
 const createBatches = async (batchData) => {
   try {
@@ -12,7 +15,8 @@ const createBatches = async (batchData) => {
 
     batchData.batch_id = batch_id;
 
-    const { teacherId } = batchData;
+    const { teacherId, createruserId } = batchData;
+
 
     const Batchdata = {
       batch_id: batchData.batch_id,
@@ -37,6 +41,22 @@ const createBatches = async (batchData) => {
         message: 'ERROR_WHILE_CREATING_BATCH',
       };
     }
+       const userId = teacherId[0];
+      const NotificationData = {
+      userId: userId,
+      appName: 'teacherApp',
+      data: {
+        message: `Your ${batch_name} has been created`
+      },
+      body: 'Your Batch is Created',
+      title: 'Your Batch is Created'
+
+    }
+
+    if (userId !== createruserId) {
+      const sendNotificationToTeacher = await pushNotification(NotificationData);
+  }
+
 
     return createdBatches;
 
