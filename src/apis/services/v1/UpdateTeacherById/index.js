@@ -18,7 +18,8 @@ const updateTeacherById = async (userId, teacherData) => {
 
 const addBatchDetails = async (userId, BatchData,batchData) => {
   try {
-    const teacher = await TeacherData.findOne({ userId });
+    const userid = userId[0];
+    const teacher = await TeacherData.findOne( {userid}); 
      let updateTeacher;
 if(batchData.mode=="online"){
   updateTeacher =  teacher.OnlieTeachingDeatis.batch_taught.push(BatchData);
