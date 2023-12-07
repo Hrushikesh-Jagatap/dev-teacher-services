@@ -56,6 +56,6 @@ module.exports = {
   systemToken: SYSTEM_TOKEN,
   loadBalancer: LOAD_BALANCER,
    student:student,
-   message:message
+   message:message,
   sessionName: SESSION_NAME,
 };
