@@ -42,20 +42,20 @@ const createBatches = async (batchData) => {
       };
     }
        const userId = teacherId[0];
-      const NotificationData = {
-      userId: userId,
-      appName: 'teacherApp',
-      data: {
-        message: `Your ${batch_name} has been created`
-      },
-      body: 'Your Batch is Created',
-      title: 'Your Batch is Created'
+  //     const NotificationData = {
+  //     userId: userId,
+  //     appName: 'teacherApp',
+  //     data: {
+  //       message: `Your ${batch_name} has been created`
+  //     },
+  //     body: 'Your Batch is Created',
+  //     title: 'Your Batch is Created'
 
-    }
+  //   }
 
-    if (userId !== createruserId) {
-      const sendNotificationToTeacher = await pushNotification(NotificationData);
-  }
+  //   if (userId !== createruserId) {
+  //     const sendNotificationToTeacher = await pushNotification(NotificationData);
+  // }
 
 
     return createdBatches;
