@@ -137,6 +137,8 @@
 const TeacherData = require('@models/Teacher');
 const { loadBalancer, SYSTEM_TOKEN,student } = require('@config');
 const axios = require('axios');
+const { pushNotification } = require('@services/v1/Notification')
+
 
 const getStudent = async (sid_userId) => {
   try {
@@ -225,7 +227,17 @@ const updateTeacherStatus = async (tid_userId, teacherData) => {
 
       const newSeacherData = { student_userId: sid_userId, subject, classes, name, profileimage };
       updatedTeacher.student_userId.push(newSeacherData);
-      await updatedTeacher.save();
+        let NotificationData = {
+          userId: sid_userId,
+          appName: 'studentApp',
+          data: {
+            message: `Your  Requested has been Accepted `
+          },
+          body: 'Your  Requested has been Accepted',
+          title: 'Your  Requested has been Accepted'
+        }
+       const Notification = await pushNotification(NotificationData);
+       await updatedTeacher.save();
     }
 
     // If status is not 'requested', update external system
