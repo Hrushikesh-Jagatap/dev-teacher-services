@@ -78,6 +78,7 @@ const completeSession = require('./completeSession');
 const splashapiforadmin = require('./splashapiforadmin');
 const GetAllBatches = require('./GetAllBatches');
 const getBatchByAdminid = require('./getBatchByAdminid');
+const getsearchByadmintId = require("./getsearchByadmintId") 
 
 router.use('/', getSessionById);
 
@@ -181,6 +182,7 @@ router.use('/', splashapiforadmin)
 router.use('/', GetAllBatches)
 router.use('/', getBatchByAdminid)
 
+router.use('/', getsearchByadmintId)
 
 
 module.exports = router;
