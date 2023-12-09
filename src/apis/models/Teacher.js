@@ -156,7 +156,7 @@ const teacherSchema = new mongoose.Schema({
     teaching_mode:
     {
       type: String,
-      default: "Online",
+      default: "online",
     },
     subjects_taught: [{
       subject: String,
@@ -208,7 +208,7 @@ const teacherSchema = new mongoose.Schema({
      teaching_mode:
     {
       type: String,
-      default: "Offline",
+      default: "offline",
     },
      teaching_languages: [String],
     availability:String,
