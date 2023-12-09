@@ -16,14 +16,17 @@ const getSplashData = async (userId) => {
 
     // const appVersions = await AppVersion.findOne({});
 
-    const response = {
+ const response = {
       teachingDetails: user?.teachingDetails ?? {},
+      OnlieTeachingDeatis:users?.onlieTeachingDeatis ??{},
+      OfflineTeachingDeatis:user?.offlineTeachingDeatis ?? {},
       personalDetails: user?.personalDetails ?? {},
-      // bankDetails: user?.bankDetails ?? {},
+      bankDetails: user?.bankDetails ?? {},
       educationDetails: user?.educationDetails ?? {},
       // appVersions: appVersions ?? {},
       req_status:user?.req_status??{},
     };
+
 
     return response;
   } catch (error) {
