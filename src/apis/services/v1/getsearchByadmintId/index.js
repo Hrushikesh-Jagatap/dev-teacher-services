@@ -4,16 +4,33 @@ const TeacherData = require('@models/Teacher');
 const getBatchByadminId = async (adminids) => {
   try {
 
-    const data = await TeacherData.find({ "Admin_Review.admin_userid":  adminids  });
-
-
-    if (data === null) {
+    // if(!adminids)
+    // {
+    //   return "plz give me admin id for";
+    // }
+    // const data = await TeacherData.find({ "Admin_Review.admin_userid":  adminids  }).select("userId personalDetails teachingDetails educationDetails OnlieTeachingDeatis OfflineTeachingDeatis")
+    // .lean().exec();;
+const teacherDetails = await TeacherData.find({ "Admin_Review.admin_userid": adminids })
+  .select("personalDetails Admin_Review")
+  .lean()
+  .exec();
+   if (teacherDetails === null) {
       return {
         status: 404,
-        message: 'BATCH_NOT_FOUND_FOR_STUDENT',
+        message: 'NOT_FOUND_FOR_TEARCHER',
       };
     }
-    return data;
+
+const formattedData = teacherDetails.map((teacher) => ({
+  
+  personalDetails: teacher.personalDetails,
+  Admin_Review:teacher.Admin_Review
+}));
+
+console.log(formattedData);
+
+
+    return formattedData;
   } catch (error) {
     // throw new Error('Failed to get Batch');
   }
