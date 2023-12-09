@@ -18,8 +18,8 @@ const getSplashData = async (userId) => {
 
  const response = {
       teachingDetails: user?.teachingDetails ?? {},
-      OnlieTeachingDeatis:user?.onlieTeachingDeatis ??{},
-      OfflineTeachingDeatis:user?.offlineTeachingDeatis ?? {},
+      OnlieTeachingDeatis:user?.OnlieTeachingDeatis ??{},
+      OfflineTeachingDeatis:user?.OfflineTeachingDeatis ?? {},
       personalDetails: user?.personalDetails ?? {},
       bankDetails: user?.bankDetails ?? {},
       educationDetails: user?.educationDetails ?? {},
